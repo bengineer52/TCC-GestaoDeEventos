@@ -62,7 +62,7 @@ class EventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = current_user.events.find(params[:id])
+      @event = current_user.events.preload(:user).find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
