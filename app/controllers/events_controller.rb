@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     @events = Event
-    @events = @events.where(user_id: params[:user_id]) if params[:user_id].present?
+    @events = @events.where(user_id: current_user.id) if params[:my_events].present?
     @events = @events.order(schedule: :asc).all
   end
 
