@@ -21,3 +21,14 @@
     <%= button_to "Subscribe", subscriptions_path(subscription: { user_id: current_user.id, event_id: @event.id }), method: :post %>
   <% end %>
 </div>
+
+<hr>
+
+<div>
+  <h3>Subscribed users</h3>
+  <% @event.subscriptions.each do |subscription| %>
+    <li>
+      <%= subscription.user.email %>
+    </li>
+  <% end %>
+</div>

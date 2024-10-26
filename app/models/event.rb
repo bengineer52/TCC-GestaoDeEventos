@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_many :subscriptions
+  has_many :users, through: :subscriptions
 
   def manager?(param_user)
     user.id == param_user.id
