@@ -4,14 +4,15 @@ class SubscriptionsController < ApplicationController
 
   # POST /subscriptions or /subscriptions.json
   def create
-    @subscription = current_user.subscriptions.create!(event_id: params[:event_id])
+    @subscription = current_user.subscriptions.create!(event_id: subscription_params[:event_id])
+    @event = Event.find(subscription_params[:event_id])
 
     respond_to do |format|
       if @subscription.save
-        format.html { redirect_to @subscription, notice: "Subscription was successfully created." }
+        format.html { redirect_to @event, notice: "Subscription was successfully created." }
         format.json { render :show, status: :created, location: @subscription }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to @event, notice: "Subscription was not created." }
         format.json { render json: @subscription.errors, status: :unprocessable_entity }
       end
     end
@@ -22,7 +23,7 @@ class SubscriptionsController < ApplicationController
     @subscription.destroy!
 
     respond_to do |format|
-      format.html { redirect_to subscriptions_path, status: :see_other, notice: "Subscription was successfully destroyed." }
+      format.html { redirect_to @subscription.event, status: :see_other, notice: "Subscription was successfully destroyed." }
       format.json { head :no_content }
     end
   end
