@@ -22,7 +22,6 @@ class SubscriptionsController < ApplicationController
 
   # POST /subscriptions or /subscriptions.json
   def create
-    debugger
     @subscription = Subscription.new(subscription_params)
 
     respond_to do |format|
