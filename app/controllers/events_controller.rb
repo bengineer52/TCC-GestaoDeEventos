@@ -4,13 +4,14 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @events = Event
     if params[:my_events].present?
       authenticate_user!
-      @events = @events.where(user_id: current_user.id)
+      @events = Event.where(user_id: current_user.id)
     elsif params[:subscribed].present?
       authenticate_user!
-      @events = @events.joins(:subscriptions).where(subscriptions: { user_id: current_user.id })
+      @events = Event.joins(:subscriptions).where(subscriptions: { user_id: current_user.id })
+    else
+      @events = Event
     end
     @events = @events.order(schedule: :asc).all
   end
