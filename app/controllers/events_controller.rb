@@ -5,19 +5,24 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     if params[:my_events].present?
+      # Caso o parâmetro 'my_events' esteja presente, mostra apenas os eventos criados pelo usuário logado
       authenticate_user!
       @events = Event.where(user_id: current_user.id)
     elsif params[:subscribed].present?
+      # Caso o parâmetro 'subscribed' esteja presente, mostra apenas os eventos inscritos pelo usuário logado
       authenticate_user!
       @events = Event.joins(:subscriptions).where(subscriptions: { user_id: current_user.id })
     else
+      # Caso nenhum dos parâmetros acima esteja presente, mostra todos os eventos
       @events = Event
     end
+    # Ordena os eventos filtrados baseado na data em que vão acontecer
     @events = @events.order(schedule: :asc).all
   end
 
   # GET /events/1 or /events/1.json
   def show
+    # O 'preload' abaixo evita o problema de N+1 queries
     @event = Event.preload(:user).find(params[:id])
     @subscription = @event.find_subscription(current_user)
   end
