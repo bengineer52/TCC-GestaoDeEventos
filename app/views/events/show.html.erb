@@ -7,4 +7,5 @@
   <%= link_to "Back to events", events_path %>
 
   <%= button_to "Destroy this event", @event, method: :delete %>
+  <%= button_to "Subscribe", subscriptions_path(subscription: { user_id: current_user.id, event_id: @event.id }), method: :post %>
 </div>
