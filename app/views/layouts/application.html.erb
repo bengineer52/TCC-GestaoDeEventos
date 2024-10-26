@@ -15,6 +15,7 @@
       <p>Current user: <%= current_user.email %></p>
     <% end %>
     <%= link_to 'AllEvents', root_path %>
+    <%= link_to 'MyEvents', events_path(user_id: current_user.id) %>
 
     <hr>
     <p class="notice"><%= notice %></p>
