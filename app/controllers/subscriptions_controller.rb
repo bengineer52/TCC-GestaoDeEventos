@@ -4,7 +4,7 @@ class SubscriptionsController < ApplicationController
 
   # POST /subscriptions or /subscriptions.json
   def create
-    @subscription = Subscription.new(subscription_params)
+    @subscription = current_user.subscriptions.create!(event_id: params[:event_id])
 
     respond_to do |format|
       if @subscription.save
@@ -30,7 +30,7 @@ class SubscriptionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_subscription
-      @subscription = Subscription.find(params[:id])
+      @subscription = current_user.subscriptions.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
