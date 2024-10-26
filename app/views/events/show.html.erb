@@ -3,6 +3,7 @@
 <%= render @event %>
 
 <div>
+  <!-- Mostra link para editar evento apenas para o organizador do evento -->
   <% if @event.manager?(current_user) %>
     <%= link_to "Edit this event", edit_event_path(@event) %> |
   <% end %>
@@ -10,11 +11,13 @@
 
   <br><br>
 
+  <!-- Mostra botão para deletar evento apenas para o organizador do evento -->
   <% if @event.manager?(current_user) %>
     <%= button_to "Destroy this event", @event, method: :delete %>
     <br>
   <% end %>
 
+  <!-- Mostra botão para se inscrever ou cancelar inscrição (caso inscrição já exista) -->
   <% if @subscription %>
     <%= button_to "Unsubscribe", subscription_path(id: @subscription.id), method: :delete %>
   <% else %>
