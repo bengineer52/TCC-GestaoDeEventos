@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   # GET /events/1 or /events/1.json
   def show
     @event = Event.find(params[:id])
+    @subscription = @event.find_subscription(current_user)
   end
 
   # GET /events/new

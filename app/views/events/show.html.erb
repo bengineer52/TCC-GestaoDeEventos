@@ -15,9 +15,8 @@
     <br>
   <% end %>
 
-  <% subscription = @event.find_subscription(current_user) %>
-  <% if subscription %>
-    <%= button_to "Unsubscribe", subscription_path(id: subscription.id), method: :delete %>
+  <% if @subscription %>
+    <%= button_to "Unsubscribe", subscription_path(id: @subscription.id), method: :delete %>
   <% else %>
     <%= button_to "Subscribe", subscriptions_path(subscription: { user_id: current_user.id, event_id: @event.id }), method: :post %>
   <% end %>
