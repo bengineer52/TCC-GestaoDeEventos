@@ -29,12 +29,10 @@ class SubscriptionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_subscription
       @subscription = current_user.subscriptions.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def subscription_params
       params.require(:subscription).permit(:event_id, :user_id)
     end
