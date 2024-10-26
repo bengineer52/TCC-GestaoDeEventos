@@ -16,6 +16,7 @@
     <% end %>
     <%= link_to 'AllEvents', root_path %>
     <%= link_to 'MyEvents', events_path(my_events: true) %>
+    <%= link_to 'SubscribedEvents', events_path(subscribed: true) %>
 
     <hr>
     <p class="notice"><%= notice %></p>
