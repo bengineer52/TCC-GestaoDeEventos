@@ -9,10 +9,10 @@ class SubscriptionsController < ApplicationController
 
     respond_to do |format|
       if @subscription.save
-        format.html { redirect_to @event, notice: "Subscription was successfully created." }
+        format.html { redirect_to @event, notice: "Inscrição foi criado com sucesso." }
         format.json { render :show, status: :created, location: @subscription }
       else
-        format.html { redirect_to @event, notice: "Subscription was not created." }
+        format.html { redirect_to @event, notice: "Inscrição não foi criada." }
         format.json { render json: @subscription.errors, status: :unprocessable_entity }
       end
     end
@@ -23,7 +23,7 @@ class SubscriptionsController < ApplicationController
     @subscription.destroy!
 
     respond_to do |format|
-      format.html { redirect_to @subscription.event, status: :see_other, notice: "Subscription was successfully destroyed." }
+      format.html { redirect_to @subscription.event, status: :see_other, notice: "Inscrição foi criada com sucesso." }
       format.json { head :no_content }
     end
   end
