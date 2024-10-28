@@ -1,4 +1,4 @@
-## Organizador de Eventos - aplicação web
+## Gestão de Eventos - aplicação web
 
 ### Dependências:
 ```
