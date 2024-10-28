@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   has_many :subscriptions
   has_many :users, through: :subscriptions
 
+  validates :name, :schedule, :location, presence: true
+
   def manager?(param_user)
     user.id == param_user.id
   end
