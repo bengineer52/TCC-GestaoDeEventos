@@ -12,11 +12,11 @@
 
   <body>
     <% if current_user %>
-      <p>Current user: <%= current_user.email %></p>
+      <p>Usuário logado: <%= current_user.email %></p>
     <% end %>
-    <%= link_to 'AllEvents', root_path %>
-    <%= link_to 'MyEvents', events_path(my_events: true) %>
-    <%= link_to 'SubscribedEvents', events_path(subscribed: true) %>
+    <%= link_to 'TodosEventos', root_path %>
+    <%= link_to 'MeusEventos', events_path(my_events: true) %>
+    <%= link_to 'EventosInscritos', events_path(subscribed: true) %>
 
     <hr>
 
