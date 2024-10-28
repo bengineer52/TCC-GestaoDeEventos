@@ -47,7 +47,7 @@ rake db:seed
 
 ### Dados de exemplo
 
-Usuário 1
+Usuário 1:
 - Possui 1 evento criado por ele
 - Está inscrito no evento criado pelo usuário 2
 ```
