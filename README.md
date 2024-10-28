@@ -1,19 +1,25 @@
-# README
+## Gerenciador de Eventos - aplicação web
 
-## Event Manager application
-Dependencies:
+### Dependências:
 ```
 Ruby 3.0.5
 Rails 7.1.4
 PostgreSQL 14.12
 ```
-Running the app:
+
+### Rodando a aplicação:
+
+Criar banco de dados e popular tabelas:
 ```
-rake db:create db:migrate # creates the db and populates tables
-rake db:seed # deletes application data and creates sample records
+rake db:create db:migrate
 ```
 
-Routes:
+Deleta os dados da aplicação atual e cria dados de exemplo:
+```
+rake db:seed
+```
+
+### Rotas:
 
 ```
                   Prefix Verb   URI Pattern                                                                                       Controller#Action
@@ -37,4 +43,22 @@ Routes:
                          DELETE /users(.:format)                                                                                  devise/registrations#destroy
                          POST   /users(.:format)                                                                                  devise/registrations#create
       rails_health_check GET
+```
+
+### Dados de exemplo
+
+Usuário 1
+- Possui 1 evento criado por ele
+- Está inscrito no evento criado pelo usuário 2
+```
+E-mail: user1@email.com
+Senha: password1234
+```
+
+Usuário 2:
+- Possui 1 evento criado por ele
+- Está inscrito no evento criado pelo usuário 1
+```
+E-mail: user2@email.com
+Senha: password1234
 ```
