@@ -17,7 +17,13 @@
     <%= link_to 'TodosEventos', root_path %>
     <%= link_to 'MeusEventos', events_path(my_events: true) %>
     <%= link_to 'EventosInscritos', events_path(subscribed: true) %>
-
+    |
+    <% if current_user %>
+      <%= link_to 'Sair', destroy_user_session_path %>
+    <% else %>
+      <%= link_to 'Entrar', new_user_session_path %>
+      <%= link_to 'Cadastrar-se', new_user_registration_path %>
+    <% end %>
     <hr>
 
     <%= yield %>
