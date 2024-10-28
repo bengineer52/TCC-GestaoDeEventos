@@ -5,30 +5,30 @@
 <div>
   <!-- Mostra link para editar evento apenas para o organizador do evento -->
   <% if @event.manager?(current_user) %>
-    <%= link_to "Edit this event", edit_event_path(@event) %> |
+    <%= link_to "Editar esse evento", edit_event_path(@event) %> |
   <% end %>
-  <%= link_to "Back to events", events_path %>
+  <%= link_to "Voltar", events_path %>
 
   <br><br>
 
   <!-- Mostra botão para deletar evento apenas para o organizador do evento -->
   <% if @event.manager?(current_user) %>
-    <%= button_to "Destroy this event", @event, method: :delete %>
+    <%= button_to "Deletar esse evento", @event, method: :delete %>
     <br>
   <% end %>
 
   <!-- Mostra botão para se inscrever ou cancelar inscrição (caso inscrição já exista) -->
   <% if @subscription %>
-    <%= button_to "Unsubscribe", subscription_path(id: @subscription.id), method: :delete %>
+    <%= button_to "Cancelar inscrição", subscription_path(id: @subscription.id), method: :delete %>
   <% else %>
-    <%= button_to "Subscribe", subscriptions_path(subscription: { user_id: current_user.id, event_id: @event.id }), method: :post %>
+    <%= button_to "Inscrever-se", subscriptions_path(subscription: { user_id: current_user.id, event_id: @event.id }), method: :post %>
   <% end %>
 </div>
 
 <hr>
 
 <div>
-  <h3>Subscribed users</h3>
+  <h3>Usuários inscritos:</h3>
   <% @event.subscriptions.each do |subscription| %>
     <li>
       <%= subscription.user.email %>

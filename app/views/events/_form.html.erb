@@ -1,7 +1,7 @@
 <%= form_with(model: event) do |form| %>
   <% if event.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <h2>Erros proibiram esse evento de ser salvo:</h2>
 
       <ul>
         <% event.errors.each do |error| %>
@@ -12,26 +12,26 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label 'Nome', style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :schedule, style: "display: block" %>
+    <%= form.label 'Data', style: "display: block" %>
     <%= form.datetime_field :schedule %>
   </div>
 
   <div>
-    <%= form.label :location, style: "display: block" %>
+    <%= form.label 'Localização', style: "display: block" %>
     <%= form.text_field :location %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label 'Descrição', style: "display: block" %>
     <%= form.text_area :description %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit('Criar evento') %>
   </div>
 <% end %>
