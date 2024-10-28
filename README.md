@@ -36,7 +36,7 @@ rake db:seed
                          DELETE /events/:id(.:format)                                                                             events#destroy
         new_user_session GET    /users/sign_in(.:format)                                                                          devise/sessions#new
             user_session POST   /users/sign_in(.:format)                                                                          devise/sessions#create
-    destroy_user_session DELETE /users/sign_out(.:format)                                                                         devise/sessions#destroy
+    destroy_user_session GET    /users/sign_out(.:format)                                                                         devise/sessions#destroy
    new_user_registration GET    /users/sign_up(.:format)                                                                          devise/registrations#new
        user_registration PATCH  /users(.:format)                                                                                  devise/registrations#update
                          PUT    /users(.:format)                                                                                  devise/registrations#update
