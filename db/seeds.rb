@@ -14,9 +14,9 @@ user_2 = User.create!(email: 'user2@email.com', password: password, password_con
 # Cria evento pro usuário 1
 event_1 = Event.create!(
   user: user_1,
-  name: 'Django introduction',
+  name: 'Como programar com Python',
   schedule: 2.week.from_now,
-  location: '24 main street, NY'
+  location: 'Av. Paulista, 300 - Bela Vista'
 )
 
 # Inscreve o usuário 2 no evento do usuário 1
@@ -28,9 +28,9 @@ Subscription.create!(
 # Cria evento pro usuário 2
 event_2 = Event.create!(
   user: user_2,
-  name: 'RubyOnRails introduction',
+  name: 'Como programar com Ruby',
   schedule: 1.week.from_now,
-  location: '22 main street, NY'
+  location: 'Av. Paulista, 890 - Bela Vista'
 )
 
 # Inscreve o usuário 1 no evento do usuário 2
