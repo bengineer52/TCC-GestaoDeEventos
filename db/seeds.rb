@@ -1,4 +1,5 @@
 # Limpa todas a tabelas do banco de dados:
+puts 'Deletando dados atuais...'
 [
   Subscription,
   Event,
@@ -6,6 +7,8 @@
 ].each(&:delete_all)
 
 password = 'password1234'
+
+puts 'Criando dados de exemplo...'
 
 # Cria dois usuários:
 user_1 = User.create!(email: 'user1@email.com', password: password, password_confirmation: password)
@@ -40,3 +43,5 @@ Subscription.create!(
   user: user_1,
   event: event_2
 )
+
+puts 'Tudo certo!'
