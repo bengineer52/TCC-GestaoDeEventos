@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: event_manager_production
-  username: event_manager
-  password: <%= ENV["EVENT_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
