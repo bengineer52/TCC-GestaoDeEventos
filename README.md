@@ -19,6 +19,16 @@ Deleta os dados da aplicação atual e cria dados de exemplo:
 rake db:seed
 ```
 
+Iniciando o servidor:
+```
+rails server -p 3000
+```
+
+Acessando aplicação através do navegador:
+```
+http://localhost:3000
+```
+
 ### Rotas:
 
 ```
