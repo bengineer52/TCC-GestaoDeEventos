@@ -2,7 +2,7 @@
 
 ### Dependências:
 ```
-Ruby 3.0.5
+Ruby 3.1.6
 Rails 7.1.4
 PostgreSQL 14.12
 ```
